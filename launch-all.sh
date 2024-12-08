@@ -1,6 +1,7 @@
 #!/bin/bash
 
-for i in 2 4 8 16 32 64; do
+for i in 2 4 8 16 32 64 80 100 128; do
+    sleep 3s
     echo "Lancement tache avec ${i} processeurs"
 
     # le parametre --ntasks a préséance sur

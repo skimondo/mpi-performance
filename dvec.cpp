@@ -50,6 +50,17 @@ void dvec_dump(dvec* v) {
  */
 void dvec_bcast_seq(dvec* v) {
   // À COMPLÉTER
+  int rank, size;
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+  if (rank == 0) {
+    for (int i = 1; i < size; i++) {
+      MPI_Send(v->data, v->n, MPI_INT, i, 0, MPI_COMM_WORLD);
+    }
+  } else {
+    MPI_Recv(v->data, v->n, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+  }
 }
 
 /*
@@ -57,5 +68,6 @@ void dvec_bcast_seq(dvec* v) {
  */
 void dvec_bcast_lib(dvec* v) {
   // À COMPLÉTER
+  MPI_Bcast(v->data, v->n, MPI_INT, 0, MPI_COMM_WORLD);
 }
 

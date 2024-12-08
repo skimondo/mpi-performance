@@ -10,5 +10,6 @@ echo "SLURM_NTASKS=$SLURM_NTASKS"
 
 # Pas besoin de specifier encore --ntasks, srun le fait automatiquement
 srun echo "Exécution sur $(hostname)" > work_$(printf "%03d" ${SLURM_NTASKS}).out
+srun  --ntasks $SLURM_NTASKS ./build/bench_bcast
 
 echo "Fin $(date)"

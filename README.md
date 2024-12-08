@@ -11,3 +11,7 @@ Vous pourrez valider votre travail à la séance de laboratoire du 4 décembre e
 Si vous avez terminé l'activité, vous pouvez compléter les laboratoires 8 et 9, qui portent sur MPI également. Cependant, ces activités ne sont pas notées.
 
 Bonne fin de session à toutes et à tous!
+
+```sh
+srun --ntasks 8 ./build/test_core 
+```
